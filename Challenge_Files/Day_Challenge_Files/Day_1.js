@@ -7,6 +7,7 @@ const file_read = () => {
 
 
 //Takes the string and splits by line break, then by spaces, and returns the two arrays
+//ToDo: Fix Regex for split
 const format_file_contents = (file_text) => {
     let arr1 = [];
     let arr2 = [];
@@ -16,9 +17,23 @@ const format_file_contents = (file_text) => {
         arr1.push(num1);
         arr2.push(num2);
     }
-    return [arr1, arr2]
+    arr1.sort((a,b) => a-b);
+    arr2.sort((a,b) => a-b);
+    const paired_array = arr1.map((val, index) => [val, arr2[index]]);
+    return paired_array;
+}
+
+
+//Take the sorted arrays and reduce through to calculate the distance between the values
+const calcuate_distance = (num_arrays) => {
+    let total_distance = num_arrays.reduce((acc, [num1, num2]) => {
+        console.log(num1, num2)
+        return acc + Math.max(num2 - num1, num1 - num2);
+    }, 0);
+    return total_distance;
 }
 
 
 
 
+console.log(calcuate_distance(format_file_contents(file_read())));
