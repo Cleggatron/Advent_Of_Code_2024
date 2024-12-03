@@ -31,18 +31,15 @@ const calcuate_distance = (num_arrays) => {
     }, 0);
     return total_distance;
 }
-console.log(calcuate_distance(format_file_contents(file_read())));
-
-
 
 //calculate the occurences of number in array
 const count_occurences = (arr_nums) => {
     const counter = {}
-    for(let num of arr_nums){
-     if(counter[num]) {
-         counter[num]++;
+    for(let [num1, num2] of arr_nums){
+     if(counter[num2]) {
+         counter[num2]++;
      } else {
-         counter[num] = 1;
+         counter[num2] = 1;
      }
     }
     return counter
@@ -52,12 +49,19 @@ const count_occurences = (arr_nums) => {
   const day2_solution = (arr_nums, counter) => {
     let total = 0;
 
-    for(let num of arr_nums){
-        if(counter[num]){
-            total += (num * counter[num])
+    for(let [num1] of arr_nums){
+        if(counter[num1]){
+            total += (num1 * counter[num1])
         }
     }
     return total;
 }
+
+const data = file_read();
+const formatted_data =  format_file_contents(data);
+const counter = count_occurences(formatted_data);
+const solution = day2_solution(formatted_data, counter);
+console.log(solution);
+
 
  
