@@ -31,7 +31,20 @@ const calcuate_distance = (num_arrays) => {
     }, 0);
     return total_distance;
 }
-
-
-
 console.log(calcuate_distance(format_file_contents(file_read())));
+
+
+
+//calculate the occurences of number in array
+const count_occurences = (arr_nums) => {
+    const counter = {}
+    for(let num of arr_nums){
+     if(counter[num]) {
+         counter[num]++;
+     } else {
+         counter[num] = 1;
+     }
+    }
+    return counter
+ }
+ 
