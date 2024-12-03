@@ -47,4 +47,17 @@ const count_occurences = (arr_nums) => {
     }
     return counter
  }
+
+  //calculate result for day 2
+  const day2_solution = (arr_nums, counter) => {
+    let total = 0;
+
+    for(let num of arr_nums){
+        if(counter[num]){
+            total += (num * counter[num])
+        }
+    }
+    return total;
+}
+
  
