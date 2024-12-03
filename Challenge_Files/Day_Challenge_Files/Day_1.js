@@ -27,12 +27,10 @@ const format_file_contents = (file_text) => {
 //Take the sorted arrays and reduce through to calculate the distance between the values
 const calcuate_distance = (num_arrays) => {
     let total_distance = num_arrays.reduce((acc, [num1, num2]) => {
-        console.log(num1, num2)
         return acc + Math.max(num2 - num1, num1 - num2);
     }, 0);
     return total_distance;
 }
-
 
 
 
