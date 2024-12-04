@@ -1,9 +1,4 @@
-import fs from "fs";
-
-const file_read = () => {
-    let file_contents = fs.readFileSync("../../Input_Files/Input_01.txt", "utf8");
-    return file_contents;
-}
+import file_read from "../HelperFunctions/helpers.js"
 
 
 //Takes the string and splits by line break, then by spaces, and returns the two arrays
@@ -57,7 +52,7 @@ const count_occurences = (arr_nums) => {
     return total;
 }
 
-const data = file_read();
+const data = file_read("Input_01.txt");
 const formatted_data =  format_file_contents(data);
 const counter = count_occurences(formatted_data);
 const solution = day2_solution(formatted_data, counter);
