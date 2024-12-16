@@ -1,0 +1,13 @@
+import {file_read} from "../HelperFunctions/helpers.js";
+
+
+const file_contents = file_read("Input_03.txt")
+
+const mul_regex = /mul\(\d+,\d+\)/g
+
+const muls = file_contents.match(mul_regex)
+
+
+
+console.log(muls)
+
