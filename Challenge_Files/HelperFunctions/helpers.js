@@ -5,5 +5,13 @@ const file_read = (file_path) => {
     return file_contents;
 };
 
+const array_reverse = (arr) => {
+    const rev_array = []
+    for(let el of arr) {
+        rev_array.unshift(el)
+    }
+    return rev_array;
+}
 
-export default file_read
+
+export { file_read, array_reverse}
